@@ -33,7 +33,12 @@ export default buildConfig({
   },
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET,
-  db: sqliteAdapter({ client: { url: process.env.DATABASE_URI || "file:./data/intellect.db" } }),
+  db: sqliteAdapter({
+    client: {
+      url: process.env.DATABASE_URI || "file:./data/intellect.db",
+      authToken: process.env.DATABASE_AUTH_TOKEN || undefined,
+    },
+  }),
   localization: {
     locales: [
       { code: "ro", label: "Română" },
