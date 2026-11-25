@@ -1,0 +1,91 @@
+:root {
+  --navy-950: #020a13;
+  --navy-900: #05111e;
+  --navy-850: #0a1828;
+  --navy-800: #0e2134;
+  --navy-700: #183049;
+  --cyan-400: #18dcf8;
+  --cyan-700: #00809e;
+  --cyan-800: #006f89;
+  --red-400: #ff4d5e;
+  --red-700: #c81e33;
+  --amber-400: #f5a524;
+  --amber-700: #9a5b00;
+  --green-400: #3ddc97;
+  --green-700: #0b7a4b;
+  --ice-100: #eaf4fa;
+  --ice-200: #cfe8f2;
+  --slate-400: #93a6b8;
+  --slate-600: #4a5b6b;
+  --ink-950: #06121e;
+  --ink-900: #1e2e3d;
+
+  --gutter: clamp(16px, 4vw, 56px);
+  --page-max: 1240px;
+  --section-space: clamp(40px, 4.5vw, 60px);
+  --header-height: 64px;
+
+  --dur-press: 120ms;
+  --dur-ui: 180ms;
+  --dur-panel: 240ms;
+  --dur-reveal: 600ms;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: var(--navy-950);
+  --bg-2: var(--navy-900);
+  --surface: var(--navy-850);
+  --surface-2: var(--navy-800);
+  --card: rgb(14 33 52 / 0.55);
+  --border: rgb(24 220 248 / 0.16);
+  --line: rgb(147 164 181 / 0.18);
+  --text: var(--ice-100);
+  --muted: var(--slate-400);
+  --dim: #2a4258;
+  --accent: var(--cyan-400);
+  --accent-text: var(--cyan-400);
+  --on-accent: #021018;
+  --glow: rgb(24 220 248 / 0.35);
+  --glow-soft: rgb(24 220 248 / 0.1);
+  --hot: var(--red-400);
+  --success: var(--green-400);
+  --t-malware: var(--red-400);
+  --t-botnet: var(--amber-400);
+  --t-scan: var(--ice-200);
+  --t-ddos: var(--cyan-400);
+  /* Blue dotted continents, as in the design. */
+  --land: rgb(60 150 255 / 0.85);
+  --land-dim: rgb(45 110 210 / 0.35);
+  --globe-fill: rgb(4 16 32 / 0.94);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f2f6f9;
+  --bg-2: #e8eff4;
+  --surface: #ffffff;
+  --surface-2: #e3ecf2;
+  --card: rgb(255 255 255 / 0.85);
+  --border: rgb(0 128 158 / 0.22);
+  --line: #ccd8e2;
+  --text: var(--ink-950);
+  --muted: var(--slate-600);
+  --dim: #b5c4d0;
+  --accent: var(--cyan-700);
+  --accent-text: var(--cyan-800);
+  --on-accent: #ffffff;
+  --glow: rgb(20 160 200 / 0.2);
+  --glow-soft: rgb(20 160 200 / 0.08);
+  --hot: var(--red-700);
+  --success: var(--green-700);
+  --t-malware: #d2384b;
+  --t-botnet: #b86e00;
+  --t-scan: #5a7690;
+  --t-ddos: var(--cyan-700);
+  --land: rgb(0 120 160 / 0.7);
+  --land-dim: rgb(0 120 160 / 0.22);
+  --globe-fill: rgb(255 255 255 / 0.55);
+}

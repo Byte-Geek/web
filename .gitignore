@@ -1,0 +1,22 @@
+/node_modules
+/.next/
+/out/
+/build
+/data
+/media
+.DS_Store
+*.pem
+*.tsbuildinfo
+next-env.d.ts
+npm-debug.log*
+.env*
+!.env.example
+
+# AI tooling, plans, notes
+.claude/
+CLAUDE.md
+AGENTS.md
+.cursor/
+graphify-out/
+plan/
+docs/plans/

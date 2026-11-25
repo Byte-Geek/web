@@ -1,0 +1,52 @@
+{
+  "name": "intellect-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome check",
+    "format": "biome format --write",
+    "typecheck": "tsc --noEmit",
+    "payload": "payload --disable-transpile",
+    "generate:types": "payload generate:types --disable-transpile",
+    "generate:importmap": "payload generate:importmap --disable-transpile",
+    "seed": "payload run src/cms/seed/index.ts --disable-transpile"
+  },
+  "dependencies": {
+    "@payloadcms/db-sqlite": "^3.93.0",
+    "@payloadcms/next": "^3.93.0",
+    "@payloadcms/plugin-seo": "^3.93.0",
+    "@payloadcms/richtext-lexical": "^3.93.0",
+    "@payloadcms/ui": "^3.93.0",
+    "clsx": "^2.1.1",
+    "d3-geo": "^3.1.2",
+    "graphql": "^16.15.0",
+    "motion": "^14.10.1",
+    "next": "16.4.5",
+    "next-intl": "^4.14.9",
+    "payload": "^3.93.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
+    "tailwind-merge": "^3.7.0",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.2",
+    "@tailwindcss/postcss": "^4",
+    "@types/d3-geo": "^3.1.1",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
