@@ -2,7 +2,8 @@
 
 Next.js 16 (App Router) · Tailwind CSS 4 · Payload CMS 3 (SQLite / Turso) · next-intl (ro implicit, en, ru).
 
-Demo: **https://web-gules-iota-85.vercel.app** · CMS: [/admin](https://web-gules-iota-85.vercel.app/admin)
+Demo: **https://web-gules-iota-85.vercel.app** · CMS: [/admin](https://web-gules-iota-85.vercel.app/admin) 
+admin@ex.md : 1234567890-=
 
 ## Pornire
 
@@ -12,8 +13,6 @@ cp .env.example .env   # completează PAYLOAD_SECRET cu un șir aleator lung
 npm run seed
 npm run dev
 ```
-
-Site: `http://localhost:3000` · CMS: `/admin` (contul de administrator se creează la prima deschidere).
 
 ## Demo pe Vercel
 
