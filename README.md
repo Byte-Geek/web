@@ -3,8 +3,9 @@
 Next.js 16 (App Router) · Tailwind CSS 4 · Payload CMS 3 (SQLite / Turso) · next-intl (ro implicit, en, ru).
 
 Demo: **https://web-gules-iota-85.vercel.app** · CMS: [/admin](https://web-gules-iota-85.vercel.app/admin) 
+```
 admin@ex.md : 1234567890-=
-
+```
 ## Pornire
 
 ```bash
