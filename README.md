@@ -1,17 +1,28 @@
 # INTELLECT · site
 
-Next.js 16 (App Router) · Tailwind CSS 4 · Payload CMS 3 (SQLite) · next-intl (ro implicit, en, ru).
+Next.js 16 (App Router) · Tailwind CSS 4 · Payload CMS 3 (SQLite / Turso) · next-intl (ro implicit, en, ru).
+
+Demo: **https://web-gules-iota-85.vercel.app** · CMS: [/admin](https://web-gules-iota-85.vercel.app/admin)
 
 ## Pornire
 
 ```bash
 npm install
-cp .env.example .env
+cp .env.example .env   # completează PAYLOAD_SECRET cu un șir aleator lung
 npm run seed
 npm run dev
 ```
 
 Site: `http://localhost:3000` · CMS: `/admin` (contul de administrator se creează la prima deschidere).
+
+## Demo pe Vercel
+
+- Baza de date e pe [Turso](https://turso.tech) (SQLite în cloud, Frankfurt), pentru că pe Vercel fișierele locale nu se păstrează.
+- Variabile pe Vercel: `DATABASE_URI` (`libsql://…`), `DATABASE_AUTH_TOKEN`, `PAYLOAD_SECRET`, `NEXT_PUBLIC_SITE_URL=https://web-gules-iota-85.vercel.app`, plus cheile Turnstile; restul din `.env.example` sunt opționale.
+- Function Region: `fra1`, lângă bază.
+- Conținutul se încarcă rulând `npm run seed` local cu `.env` legat la Turso.
+- Fiecare push pe `main` face deploy automat.
+- Limitări: imaginile urcate din CMS nu se păstrează (nu există stocare externă), formularul nu trimite email fără `RESEND_API_KEY`, iar harta afișează „date indisponibile”, pentru că job-ul `sync-threats` nu rulează pe Vercel.
 
 ## Comenzi
 
@@ -19,7 +30,7 @@ Site: `http://localhost:3000` · CMS: `/admin` (contul de administrator se creea
 | --- | --- |
 | `dev` · `build` · `start` | dezvoltare, build de producție, server de producție |
 | `lint` · `format` · `typecheck` | Biome, TypeScript |
-| `seed` | recreează conținutul ro/en/ru (nu atinge administratorii și mesajele) |
+| `seed` | șterge și recreează conținutul ro/en/ru (nu atinge administratorii și mesajele) |
 | `generate:types` · `generate:importmap` | după modificări în schema Payload |
 
 ## Structură
@@ -29,18 +40,24 @@ src/
   app/(site)/[locale]/   paginile publice; rutele interne sunt în engleză, URL-urile traduse în i18n/routing.ts
   app/(payload)/         panoul și API-ul Payload (generate)
   app/api/threats/       snapshot agregat pentru hartă
-  cms/                   configurația Payload: colecții, globale, câmpuri, acces, seed, interogări
+  app/og/                imagini Open Graph semnate
+  app/.well-known/       security.txt
+  cms/                   configurația Payload: colecții, globale, câmpuri, acces, job-uri, seed, interogări
   components/layout/     header, footer, meniuri, comutatoare de temă și limbă
   components/ui/         elemente reutilizabile (iconițe, secțiuni, tab-uri, filtre, FAQ, CTA)
   components/cards/      carduri de conținut (serviciu, studiu de caz, articol, membru, tehnologie)
+  components/kokonutui/  efecte vizuale (fundal animat, text glitch, pastilă glisantă, inerția caruselului)
   features/home/         secțiunile paginii principale
   features/threats/      globul (canvas, 3D și 2D), job-ul de date, snapshot, jurnal
   features/contact/      formular, Server Action, validare, protecții anti-spam
   features/legal/        paginile legale
+  features/seo/          imaginile Open Graph: șablon, semnătură HMAC, fonturi Manrope
   i18n/                  rutare, navigare, încărcarea mesajelor
   lib/                   SEO, formatare, headere de securitate, taxonomii
   styles/                tokeni (tokens.css), Tailwind @theme (globals.css), componente (components.css)
 messages/                textele interfeței în ro, en, ru
+public/images/           imagini statice (hero, hartă, emblemă)
+scripts/build-map.mjs    generează public/images/map.webp din OpenStreetMap (node scripts/build-map.mjs <lat> <lng>)
 ```
 
 ## Decizii
